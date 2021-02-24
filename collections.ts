@@ -1,8 +1,10 @@
 const findMostFrequentElement = (array: number[]): string => {
+    const uniqueElements = new Set([...array]);
+
     let result = 0;
     let resultFound = 0;
 
-    array.forEach((value) => {
+    uniqueElements.forEach((value) => {
         const amount = array.filter((num) => num === value).length;
 
         if (amount > resultFound) {

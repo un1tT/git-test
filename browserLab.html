@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser Lab</title>
+
+    <style>
+        .root {
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            text-align: center;
+        }
+        .header {
+            font-family: sans-serif;
+            text-transform: uppercase;
+            font-size: 24pt;
+            margin-bottom: 24px;
+        }
+        .numbers-input {
+            height: 40px;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        .submit {
+            height: 40px;
+            width: 90px;
+            background-color: #125699;
+            color: white;
+            font-size: 16pt;
+            border-radius: 10px;
+            outline: none;
+
+
+        }
+    </style>
+</head>
+<body class="root">
+    <label class="header" for="numbers-input">
+        Enter numbers, divide it with space symbol
+    </label>
+
+    <input class="numbers-input" id="numbers-input" type="text" style="width: 100%" />
+
+    <div>
+        <button class="submit" id="submit-button">Submit</button>
+    </div>
+
+    <script>
+        const DEFAULT_INPUT_VALUE = '7 2 2 2 3 7 7 7 7 3 5 9 7';
+
+        const numbersInput = document.getElementById('numbers-input');
+
+        numbersInput.value = DEFAULT_INPUT_VALUE;
+
+        function onSubmit() {
+            const targetInput = document.getElementById('numbers-input');
+            const array = targetInput.value.split(' ');
+
+            const uniqueSet = new Set(array);
+            let result = 0;
+            let resultFound = 0;
+
+            for (const value of new Array(...uniqueSet)) {
+                let amount = 0;
+
+                for (const num of array) {
+                    (num === value) && amount++;
+                }
+
+                if (amount > resultFound) {
+                    resultFound = amount;
+                    result = value;
+                }
+            }
+
+            alert(`The most frequent number in the array is ${result}, it is found ${resultFound} times`);
+        }
+
+        document.getElementById('submit-button').addEventListener('click', onSubmit);
+    </script>
+</body>
+</html>

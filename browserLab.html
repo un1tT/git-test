@@ -30,8 +30,9 @@
             font-size: 16pt;
             border-radius: 10px;
             outline: none;
-
-
+        }
+        .result-container {
+            text-align: left;
         }
     </style>
 </head>
@@ -44,6 +45,10 @@
 
     <div>
         <button class="submit" id="submit-button">Submit</button>
+    </div>
+
+    <div class="result-container">
+        <span>The most frequent number:</span> <span id="result"></span>
     </div>
 
     <script>
@@ -74,7 +79,7 @@
                 }
             }
 
-            alert(`The most frequent number in the array is ${result}, it is found ${resultFound} times`);
+            document.getElementById('result').innerText = `${result.toString()} (found ${resultFound} times)`;
         }
 
         document.getElementById('submit-button').addEventListener('click', onSubmit);

@@ -3,16 +3,14 @@
 // и двух его наследников у которых будет как минимум один дополнительный метод и свойство
 
 class Place {
-    readonly name: string;
-    readonly region: string;
+    private readonly name: string;
+    private readonly region: string;
 
     callLocalPolice = (): void => {
         console.log('Police is coming Wee wee!!!');
     }
 
-    getName = (): void => {
-        console.log(this.name);
-    }
+    getName = (): string => this.name;
 
     constructor(name: string, region: string) {
         this.name = name;
@@ -21,7 +19,7 @@ class Place {
 }
 
 class Town extends Place {
-    readonly amountOfCars: number;
+    private readonly amountOfCars: number;
 
     getAmountOfCars = (): void => {
         console.log(this.amountOfCars);
@@ -35,7 +33,7 @@ class Town extends Place {
 }
 
 class Village extends Place {
-    readonly schoolExists: boolean;
+    private readonly schoolExists: boolean;
 
     doesSchoolExistsHere = (): boolean => {
         return this.schoolExists;
@@ -49,13 +47,13 @@ class Village extends Place {
 }
 
 const place = new Place('some location', 'Tomsk');
-console.log(`Lets call ${place.name} police: `);
+console.log(`Lets call ${place.getName()} police: `);
 place.callLocalPolice();
 
 const seversk = new Town('Seversk', 'Tomsk', 200);
-console.log(`Lets find out how many cars does ${seversk.name} have: `);
+console.log(`Lets find out how many cars does ${seversk.getName()} have: `);
 seversk.getAmountOfCars();
 
 const ozernoe = new Village('Ozernoe', 'Tomsk', false);
-console.log(`Lets find out if ${ozernoe.name} has a school: `);
+console.log(`Lets find out if ${ozernoe.getName()} has a school: `);
 console.log(ozernoe.doesSchoolExistsHere());

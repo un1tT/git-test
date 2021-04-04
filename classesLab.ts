@@ -2,7 +2,7 @@
 // Релизуйте класс с использованием JavaScript Населённый пункт с двумя свойствами (на ваш выбор) и двумя методами
 // и двух его наследников у которых будет как минимум один дополнительный метод и свойство
 
-class Place {
+abstract class Place {
     private readonly name: string;
     private readonly region: string;
 
@@ -12,7 +12,7 @@ class Place {
 
     getName = (): string => this.name;
 
-    constructor(name: string, region: string) {
+    protected constructor(name: string, region: string) {
         this.name = name;
         this.region = region;
     }
@@ -45,10 +45,6 @@ class Village extends Place {
         this.schoolExists = schoolExists;
     }
 }
-
-const place = new Place('some location', 'Tomsk');
-console.log(`Lets call ${place.getName()} police: `);
-place.callLocalPolice();
 
 const seversk = new Town('Seversk', 'Tomsk', 200);
 console.log(`Lets find out how many cars does ${seversk.getName()} have: `);

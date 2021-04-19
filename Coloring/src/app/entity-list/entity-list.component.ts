@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EntitiesService } from '../entities.service';
 
 @Component({
   selector: 'app-entity-list',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entity-list.component.scss']
 })
 export class EntityListComponent implements OnInit {
-  entities: string[] = ['User', 'Picture', 'Cell', 'Working Area'];
-  constructor() { }
+  entities: string[] = [];
+  constructor(private entityService: EntitiesService) { }
 
   ngOnInit(): void {
+    this.entities = this.entityService.getEntities();
   }
 
 }

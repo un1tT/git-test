@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entity-list.component.scss']
 })
 export class EntityListComponent implements OnInit {
+  entities: string[] = ['User', 'Picture', 'Cell', 'Working Area'];
   constructor() { }
 
   ngOnInit(): void {

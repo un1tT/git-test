@@ -1,7 +1,4 @@
 <h1>Coloring application entities list:</h1>
 <ul>
-  <li>User</li>
-  <li>Picture</li>
-  <li>Cell</li>
-  <li>WorkingArea</li>
+  <li *ngFor="let entity of entities">{{entity | uppercase}}</li>
 </ul>

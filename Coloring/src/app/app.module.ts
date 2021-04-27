@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EntityListComponent } from './entity-list/entity-list.component';
+import { EntityDescriptionComponent } from './entity-description/entity-description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntityListComponent
+    EntityListComponent,
+    EntityDescriptionComponent
   ],
   imports: [
     BrowserModule,

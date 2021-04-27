@@ -1,4 +1,7 @@
-<h1>Coloring application entities list:</h1>
-<ul>
-  <li *ngFor="let entity of entities">{{entity | uppercase}}</li>
-</ul>
+<div class="root">
+  <h1>Coloring application entities list:</h1>
+  <ul>
+    <li [routerLink]="['/description', entity]" *ngFor="let entity of entities">{{entity | uppercase}}</li>
+  </ul>
+</div>
+

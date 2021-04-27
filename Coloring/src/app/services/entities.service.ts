@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
+import { AppEntity } from '../entity-list/entity-list.constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntitiesService {
-  private readonly entities: string[] = ['User', 'Picture', 'Cell', 'Working Area'];
-
   constructor() { }
 
-  getEntities(): string[] {
-    return this.entities;
+  getEntities(): AppEntity[] {
+    return Object.values(AppEntity);
   }
 }

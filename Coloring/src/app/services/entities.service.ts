@@ -1,18 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AppEntities, AppEntity} from '../entity-list/entity-list.constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntitiesService {
-  constructor() { }
-  entities = AppEntities;
+  private entities: AppEntity[] = AppEntities;
+  entitiesObserver = {
+    next: (entity: AppEntity) => this.entities = [...this.entities, entity]
+  };
 
   getEntities(): AppEntity[] {
     return this.entities;
-  }
-
-  addEntity(newEntity: AppEntity): void {
-    this.entities = [...this.entities, newEntity];
   }
 }

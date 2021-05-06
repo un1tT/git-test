@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { EntitiesService } from '../services/entities.service';
-import {AppEntity} from './entity-list.constant';
+import {AppEntities, AppEntity} from './entity-list.constant';
 import {MatDialog} from '@angular/material/dialog';
 import {EntityFormComponent} from '../entity-form/entity-form.component';
 
@@ -11,11 +11,15 @@ import {EntityFormComponent} from '../entity-form/entity-form.component';
 })
 export class EntityListComponent implements OnInit {
   entities: AppEntity[] = [];
+  @Output() createEntity = new EventEmitter();
 
-  constructor(private entityService: EntitiesService, public dialog: MatDialog) { }
+
+  constructor(private entityService: EntitiesService, public dialog: MatDialog) {
+    this.createEntity.subscribe(this.entityService.entitiesObserver);
+    this.entities = this.entityService.getEntities();
+  }
 
   ngOnInit(): void {
-    this.entities = this.entityService.getEntities();
   }
 
   openDialog(): void {
@@ -24,8 +28,10 @@ export class EntityListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.entityService.addEntity(result);
-      this.entities = this.entityService.getEntities();
+      if (result) {
+        this.createEntity.emit(result);
+        this.entities = this.entityService.getEntities();
+      }
     });
   }
 }

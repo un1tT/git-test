@@ -1,7 +1,9 @@
 <div class="root">
   <h1>Coloring application entities list:</h1>
   <ul>
-    <li [routerLink]="['/description', entity]" *ngFor="let entity of entities">{{entity | uppercase}}</li>
+    <li [routerLink]="['/description', entity.name]" *ngFor="let entity of entities">{{entity.name | uppercase}}</li>
   </ul>
+
+  <button mat-button (click)="openDialog()">Add Entity</button>
 </div>
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EntityListComponent} from "./entity-list/entity-list.component";
-import {EntityDescriptionComponent} from "./entity-description/entity-description.component";
+import {EntityListComponent} from './entity-list/entity-list.component';
+import {EntityDescriptionComponent} from './entity-description/entity-description.component';
 
 const routes: Routes = [
   { path: '', component: EntityListComponent },

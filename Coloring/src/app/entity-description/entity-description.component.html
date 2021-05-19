@@ -1,5 +1,17 @@
 <div class="root">
-  <h1>Description of {{entityName}}:</h1>
-  <p>{{description}}</p>
+  <div class="content">
+    <h1>Description of {{entityName}}:</h1>
+    <p>{{description}}</p>
+
+    <p class="example" *ngIf="entityName === 'Picture'">
+      Example: <br><br>
+      {{"{"}}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;name: Cute dog <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;width: {{100 | toPixels}} <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;height: {{120 | toPixels}} <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cells: [...] <br>
+      {{"}"}}
+    </p>
+  </div>
 </div>
 

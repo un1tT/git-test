@@ -2,6 +2,17 @@
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+
+  .content {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .example {
+      align-self: flex-start;
+      font-family: monospace;
+    }
+  }
 }
